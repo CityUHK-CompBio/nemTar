@@ -17,14 +17,14 @@ devtools::install_github("CityUHK-CompBio/nemTar", dependencies=TRUE)
 
 ## Dependency
 
-**PAGnet** requires the following R/Bioconductor packages for its normal function:
+**nemTar** requires the following R/Bioconductor packages for its normal function:
 
-- nem
-- dplyr
+- nem (Bioconductor, 2.60.0 is preferred)
+- dplyr(0.8.5 is preferred)
 
 ## Quick Start to Apply **nemTar**
 
-A toy example on simulated network and two case studies involved in GC and CRC could be found in our [vignette] (https://github.com/CityUHK-CompBio/PAGnet/blob/master/vignettes/PAGnet.pdf)
+A toy example on simulated network and two case studies involved in GC and CRC could be found in our [vignette](https://github.com/CityUHK-CompBio/PAGnet/blob/master/vignettes/PAGnet.pdf)
 
 **PAGnet** also provides a local shiny interface to perform MRA in PAGnet with signature gene sets in Gene Ontology (GO) and KEGG databases obtained from Pseudomonas Genome DB.
 Call local shiny interface:
@@ -33,4 +33,4 @@ Call local shiny interface:
 
 ## Getting help
 
-Should you have any questions about this package, you can either email to the developers listed in the DESCRIPTION part of this package or create an issue in the [issue part](https://github.com/CityUHK-CompBio/PAGnet/issues).
+Should you have any questions about this package, you can either email to the developers listed in the DESCRIPTION part of this package or create an issue in the [issue part](https://github.com/CityUHK-CompBio/nemTar/issues).
