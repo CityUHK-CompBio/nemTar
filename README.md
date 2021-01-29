@@ -19,8 +19,8 @@ devtools::install_github("CityUHK-CompBio/nemTar", dependencies=TRUE)
 
 **nemTar** requires the following R/Bioconductor packages for its normal function:
 
-- nem (Bioconductor, 2.60.0 is preferred)
-- dplyr(0.8.5 is preferred)
+- nem (Bioconductor, version 2.60.0 is preferred)
+- dplyr(version 0.8.5 is preferred)
 
 ## Quick Start to Apply **nemTar**
 
