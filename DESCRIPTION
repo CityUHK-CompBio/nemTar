@@ -1,0 +1,22 @@
+Package: nemTar
+Type: Package
+Title: A method for singlaing network inference from (epi)genetic aberration profiles
+Version: 0.1.0
+Author: Yuchen ZHANG
+Maintainer: Yuchen ZHANG <yuczhang9@163.com> Xin WANG <xin.wang@cityu.edu.hk> 
+Description: The package 'nemTar' are the extension of classic nest effects models(NEMs)
+Depends: 
+      R (>= 3.6.0),
+      nem (>= 2.60.0),
+      dplyr (>= 1.0.0)
+License: GPL (>= 2)
+Encoding: UTF-8
+LazyData: true
+Suggests: 
+      knitr,
+      rmarkdown
+VignetteBuilder: knitr
+biocViews:
+Imports:
+    methods
+RoxygenNote: 7.1.1
