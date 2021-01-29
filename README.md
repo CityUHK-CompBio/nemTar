@@ -22,18 +22,12 @@ devtools::install_github("CityUHK-CompBio/nemTar", dependencies=TRUE)
 - nem
 - dplyr
 
-## Quick Start
+## Quick Start to Apply **nemTar**
 
 Here is a simple but useful example to use **PAGnet** to perform Master Regulator Analysis in default PAGnet.
 
-Before starting the demonstration, you need to load the **PAGnet** package:
-```
-library(PAGnet)
-```
 **PAGnet** also provides a local shiny interface to perform MRA in PAGnet with signature gene sets in Gene Ontology (GO) and KEGG databases obtained from Pseudomonas Genome DB.
 Call local shiny interface:
-
-![Local shiny interface of PAGnet](vignettes/figures/localshiny1.jpg)
 
 ### For more details, pelease refer to our [vignette](https://github.com/CityUHK-CompBio/PAGnet/blob/master/vignettes/PAGnet.pdf)
 
