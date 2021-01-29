@@ -26,8 +26,7 @@ devtools::install_github("CityUHK-CompBio/nemTar", dependencies=TRUE)
 
 A toy example on simulated network and two case studies involved in GC and CRC could be found in our [vignette](https://github.com/CityUHK-CompBio/nemTar/blob/main/vignettes/nemTar_vignettes.pdf)
 
-**PAGnet** also provides a local shiny interface to perform MRA in PAGnet with signature gene sets in Gene Ontology (GO) and KEGG databases obtained from Pseudomonas Genome DB.
-Call local shiny interface:
+**nemTar** also provides a manual [vignette](https://github.com/CityUHK-CompBio/nemTar/blob/main/nemTar.pdf) to 
 
 ## Getting help
 
