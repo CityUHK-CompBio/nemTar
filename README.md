@@ -2,7 +2,7 @@
 A method based on graphical model for cancer regulatory network inference and prioritization of potential therapeutic targets
 ## Quick Installation
 
-### This package is available under R(3.6.x).
+### This package is available under R(>=3.5.0, 3.6.x is preferred).
 
 If you have installed `devtools` package, you only need to call `install_github` function in `devtools` to install `nemTar`.
 
@@ -24,7 +24,7 @@ devtools::install_github("CityUHK-CompBio/nemTar", dependencies=TRUE)
 
 ## Quick Start to Apply **nemTar**
 
-Here is a simple but useful example to use **PAGnet** to perform Master Regulator Analysis in default PAGnet.
+A toy example on simulated network and two case studies involved in GC and CRC could be found in our [vignette] (https://github.com/CityUHK-CompBio/PAGnet/blob/master/vignettes/PAGnet.pdf)
 
 **PAGnet** also provides a local shiny interface to perform MRA in PAGnet with signature gene sets in Gene Ontology (GO) and KEGG databases obtained from Pseudomonas Genome DB.
 Call local shiny interface:
