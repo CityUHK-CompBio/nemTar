@@ -26,7 +26,7 @@ devtools::install_github("CityUHK-CompBio/nemTar", dependencies=TRUE)
 
 A toy example on simulated network and two case studies involved in GC and CRC could be found in our [vignette](https://github.com/CityUHK-CompBio/nemTar/blob/main/vignettes/nemTar_vignettes.pdf)
 
-**nemTar** also provides a manual [vignette](https://github.com/CityUHK-CompBio/nemTar/blob/main/nemTar.pdf) to 
+**nemTar** also provides a [manual](https://github.com/CityUHK-CompBio/nemTar/blob/main/nemTar_0.1.0.pdf) to introcuce the main functions in our package.
 
 ## Getting help
 
