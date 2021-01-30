@@ -2,7 +2,7 @@
 title: Vignette for NEM-Tar:a method for cancer regulatory network inference and prioritization
   of potential therapeutic targets
 author: "Yuchen ZHANG,Lina ZHU,Xin WANG"
-date: "January 27, 2021"
+date: "January 30, 2021"
 output:
   pdf_document: 
     latex_engine: xelatex
@@ -163,7 +163,6 @@ sig_test<-WIGsig_test(sample_WIG0,WIG,1e05)
 sig_rslt<-data.frame(S_genes=names(EMT_post$Sig_affected)[which(lengths(EMT_post$path_affected)!=0)],
                      WIG=round(WIG$WIG,2),adjusted_P=format(round(sig_test,6),
                                                             scientific = TRUE,digits = 3))
-sig_rslt[which(sig_rslt$adjusted_P==0),3]<-'<1e-05'
 colnames(sig_rslt)<-c("S genes","WIG","Adjusted P")
 sig_rslt<-sig_rslt[order(sig_rslt$WIG,decreasing=TRUE),]
 knitr::kable(sig_rslt,align="l",row.names=F,caption="Assessment of single S-gene perturbation  
@@ -247,7 +246,7 @@ sig_rslt<-data.frame(S_genes=names(EMT_post$Sig_affected)[which(lengths(EMT_post
                      WIG=round(WIG$WIG,2),adjusted_P=format(round(sig_test,6),
                                                             scientific = TRUE,digits = 3))
 colnames(sig_rslt)<-c("Sgenes","WIG","Adjusted P")
-sig_rslt[which(sig_rslt[3]==0),3]<-"<1e-05"
+# sig_rslt[which(sig_rslt[3]==0),3]<-"<1e-05"
 sig_rslt<-sig_rslt[order(sig_rslt$WIG,decreasing=TRUE),]
 knitr::kable(sig_rslt,align="l",row.names=F,caption="Assessment of the impact of single S-gene 
              perturbation on EMT in CRC")
