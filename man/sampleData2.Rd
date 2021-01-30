@@ -9,7 +9,6 @@ sampleData2(
   S_obs,
   p,
   m,
-  uninformative = 0,
   type = "binary",
   typeI.err = typeI.err,
   typeII.err = typeII.err
