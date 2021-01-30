@@ -28,6 +28,6 @@ A toy example on simulated network and two case studies involved in GC and CRC c
 
 **nemTar** also provides a [manual](https://github.com/CityUHK-CompBio/nemTar/blob/main/nemTar_0.1.0.pdf) to introcuce the main functions in our package.
 
-## Getting help
+## Getting Help
 
 Should you have any questions about this package, you can either email to the developers listed in the DESCRIPTION part of this package or create an issue in the [issue part](https://github.com/CityUHK-CompBio/nemTar/issues).
