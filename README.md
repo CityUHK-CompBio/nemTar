@@ -9,7 +9,7 @@ If you have installed `devtools` package, you only need to call `install_github`
 ```
 Please refer to the following commands to install **nemTar**
 
-library("devtools")
+install("devtools")
 
 devtools::install_github("CityUHK-CompBio/nemTar", dependencies=TRUE)
 
