@@ -6,6 +6,7 @@
 #' @param num_sgene      a numeric of the number of S-genes
 #'
 #' @import dplyr
+#' @importFrom utils combn
 #' @export
 WIG_double<-function(path_post,num_sgene){
   ######## 2 S-genes pertubation

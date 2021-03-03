@@ -9,7 +9,7 @@
 #' @param typeII.err  simulated type II error for binary data
 
 #' @seealso \code{\link[nem]{sampleData}}
-sampleData2 = function(Phi,S_obs,p,m, uninformative=0, type="binary", typeI.err=typeI.err, typeII.err=typeII.err){
+sampleData2 = function(Phi,S_obs,p,m,type="binary", typeI.err=typeI.err, typeII.err=typeII.err){
   Sgenes = colnames(Phi)
   n = length(Sgenes)
   set.seed(1234)
@@ -27,9 +27,9 @@ sampleData2 = function(Phi,S_obs,p,m, uninformative=0, type="binary", typeI.err=
       D[M[,i] == 0, k2] =  matrix(sample(c(0,1),sum(M[,i] == 0),replace=TRUE,prob=c(1-typeI.err,typeI.err)), ncol=1) # ... and not effected ones => aus H0 ziehen
       k2 = k2 + 1
     }
-    if(uninformative > 0)
-      D = rbind(D, matrix(sample(c(0,1),n*uninformative,replace=TRUE,prob=c(1-typeI.err,typeI.err)),
-                          nrow=uninformative, ncol=n)) # ... and not effected ones => aus H0 ziehen)
+    # if(uninformative > 0)
+    #   D = rbind(D, matrix(sample(c(0,1),n*uninformative,replace=TRUE,prob=c(1-typeI.err,typeI.err)),
+    #                       nrow=uninformative, ncol=n)) # ... and not effected ones => aus H0 ziehen)
   }
   # else if(type %in% c("density")){
   #   lambda = cbind(1-rowSums(lambda), lambda)

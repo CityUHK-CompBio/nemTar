@@ -2,7 +2,7 @@
 title: Vignette for NEM-Tar:a method for cancer regulatory network inference and prioritization
   of potential therapeutic targets
 author: "Yuchen ZHANG,Lina ZHU,Xin WANG"
-date: "January 30, 2021"
+date: "February 28, 2021"
 output:
   pdf_document: 
     latex_engine: xelatex
@@ -110,10 +110,10 @@ print(error)
 
 The profiles of GC contains three different elements.The S-gene number was
 determined as 14, thus the dimension of adjacency matrix of S-gene interacction
-network was 14\times14; Edata_GC_ori and D are the E-gene profiles before and after 
-the transformation to binary variable,with the dimension of 1194\times40 and 818\times27,
+network was 15\times15; Edata_GC_ori and D are the E-gene profiles before and after 
+the transformation to binary variable,with the dimension of 1194\times38 and 824\times28,
 respectively; Sdata_GC is the observed profile of 'natural' perturbation states of
-Sgenes with the dimension of 27\times14.
+Sgenes with the dimension of 28\times15.
 
 ```{r}
 # load the input profiles of GC
@@ -124,7 +124,7 @@ data("EMT_list")
 
 ## 4.2  Transforming the E-gene profiles into binary variable and network inference
 ```{r}
-res.disc <- nem.discretize(Edata_GC_ori,neg.control=1:10,pos.control=11:13,nfold=2,cutoff= 0.5)
+res.disc <- nem.discretize(Edata_GC_ori,neg.control=1:8,pos.control=9:10,nfold=2,cutoff= 0.5)
 D<-res.disc$dat
 para<-res.disc$para
 control<-set.default.parameters(Sgenes=Sgenes_GC,type="mLL",para=para)
@@ -142,7 +142,7 @@ plot.nem(nemTar_GC,what="graph",transitiveReduction=T)
 ### 4.3.2  Employing the 'RedeR' package to visualize the network(after adjustment of the layout,color etc.)
 
 ```{r,echo=FALSE}
-knitr::include_graphics("E:/Thesis/NEM_tar_Fig/RedeR_show.png")
+knitr::include_graphics("E:/NEM_paper2/GC_EMT_net.png")
 ```
 
 ## 4.4  Assessment of the influence of S-gene perturbations on EMT process
@@ -156,8 +156,8 @@ sampling times,in the following case P<1e-05.)
 
 ```{r}
 EMT_post<-path_post(nemTar_GC,EMT_list,Sgenes_GC)
-WIG<-compute_WIG(EMT_post$post_affected,EMT_post$path_affected,14)
-sample_WIG0<-WIG_sample(EMT_post,nemTar_GC,EMT_list,14,1e05)
+WIG<-compute_WIG(EMT_post$post_affected,EMT_post$path_affected,15)
+sample_WIG0<-WIG_sample(EMT_post,nemTar_GC,EMT_list,15,1e05)
 sig_test<-WIGsig_test(sample_WIG0,WIG,1e05)
 ### results summary
 sig_rslt<-data.frame(S_genes=names(EMT_post$Sig_affected)[which(lengths(EMT_post$path_affected)!=0)],
@@ -173,14 +173,14 @@ Also, the weigheted information gain(WIG) of combinational perturbation of 2
 S-genes could be calcualted.The kinases of double perturbation with higher WIGs
 could be the candidate combinational therapeutic targets.
 ```{r}
-Sgene_double_WIG<-WIG_double(EMT_post,14)
+Sgene_double_WIG<-WIG_double(EMT_post,15)
 ### results summary
 sig_rslt<-data.frame(S_genes=names(Sgene_double_WIG$WIG),
                      WIG=round(Sgene_double_WIG$WIG,2))
 colnames(sig_rslt)<-c("S genes","WIG")
 sig_rslt<-sig_rslt[order(sig_rslt$WIG,decreasing=TRUE),]
-knitr::kable(sig_rslt[match(c("CDH1/ERBB2","KRAS/CDH1","BRAF/CDH1","BRAF/ERBB2",
-                              "KRAS/ERBB2","KRAS/BRAF"),rownames(sig_rslt)),],
+knitr::kable(sig_rslt[match(c("CDH1/ERBB2","KRAS/CDH1","BRAF/CDH1","KRAS/ERBB2",
+                              "BRAF/ERBB2","KRAS/BRAF"),rownames(sig_rslt)),],
              align="l",row.names=F,caption="Assessment of double perturbations 
              (kinase only) on EMT in GC")
 ```
@@ -192,10 +192,10 @@ knitr::kable(sig_rslt[match(c("CDH1/ERBB2","KRAS/CDH1","BRAF/CDH1","BRAF/ERBB2",
 
 The profiles of GC contains three different elements.The S-gene number was
 prioritized as 15, thus the dimension of adjacency matrix of S-gene interacction
-network was 15\times15; Edata_GC_ori and D are the E-gene profiles before and
-after the transformation to binary variable,with the dimension of 1337\times93
-and 1292\times54,respectively; Sdata_CRC is the observed profile of 'natural'
-perturbation states of S-genes with the dimension 54\times15.
+network was 13\times13; Edata_GC_ori and D are the E-gene profiles before and
+after the transformation to binary variable,with the dimension of 1337\times96
+and 1323\times50,respectively; Sdata_CRC is the observed profile of 'natural'
+perturbation states of S-genes with the dimension 50\times13.
 
 ```{r}
 library(nemTar)
@@ -206,7 +206,7 @@ data("EMT_list")
 
 ## 5.2  Transforming the E-gene profiles into binary variable and network inference
 ```{r}
-res.disc <- nem.discretize(Edata_CRC_ori,neg.control=1:27,pos.control=28:39,nfold=2,cutoff= 0.6)
+res.disc <- nem.discretize(Edata_CRC_ori,neg.control=1:30,pos.control=31:46,nfold=2,cutoff=0.6)
 D<-res.disc$dat
 para<-res.disc$para
 control<-set.default.parameters(Sgenes=Sgenes_CRC,type="mLL",para=para)
@@ -224,7 +224,7 @@ plot.nem(nemTar_CRC,what="graph",transitiveReduction=T)
 ### 5.3.2  Employing the 'RedeR' package to visualize the network(after adjustment of the layout,color etc.)
 
 ```{r,echo=FALSE}
-knitr::include_graphics("E:/Thesis/NEM_tar_Fig/CRC_show.png")
+knitr::include_graphics("E:/NEM_paper2/CRC_CMS4_net.png")
 ```
 
 ## 5.4  Assessment of the influence of S-gene perturbations on EMT process
@@ -238,8 +238,8 @@ sampling times,in the following case P<1e-05.)
 
 ```{r}
 EMT_post<-path_post(nemTar_CRC,EMT_list,Sgenes_CRC)
-WIG<-compute_WIG(EMT_post$post_affected,EMT_post$path_affected,15)
-sample_WIG0<-WIG_sample(EMT_post,nemTar_CRC,EMT_list,15,1e05)
+WIG<-compute_WIG(EMT_post$post_affected,EMT_post$path_affected,13)
+sample_WIG0<-WIG_sample(EMT_post,nemTar_CRC,EMT_list,13,1e05)
 sig_test<-WIGsig_test(sample_WIG0,WIG,1e05)
 ### results summary
 sig_rslt<-data.frame(S_genes=names(EMT_post$Sig_affected)[which(lengths(EMT_post$path_affected)!=0)],
@@ -256,15 +256,15 @@ Similar to study in GC, the weigheted information gain(WIG) of combinational
 perturbation of 2 Sgenes could be calcualted.The kinases of double perturbation
 with higher WIGs could be the candidate combinational therapeutic targets.
 ```{r}
-Sgene_double_WIG<-WIG_double(EMT_post,15)
+Sgene_double_WIG<-WIG_double(EMT_post,13)
 ### results summary
 sig_rslt<-data.frame(S_genes=names(Sgene_double_WIG$WIG),
                      WIG=round(Sgene_double_WIG$WIG,2))
 colnames(sig_rslt)<-c("S genes","WIG")
 sig_rslt<-sig_rslt[order(sig_rslt$WIG,decreasing=TRUE),]
-knitr::kable(sig_rslt[match(c("KRAS/TGFBR2","TGFBR2/CTNNB1","TGFBR2/ERBB4","PIK3CA/TGFBR2",
-                              "SMAD4/TGFBR2","KRAS/CTNNB1","ERBB4/CTNNB1","KRAS/SMAD4",
-                              "PIK3CA/CTNNB1","SMAD4/CTNNB1"),rownames(sig_rslt)),],
+knitr::kable(sig_rslt[match(c("KRAS/CTNNB1","KRAS/TGFBR2","KRAS/ERBB4","KRAS/BRAF",
+                              "KRAS/PIK3CA","BRAF/CTNNB1","PIK3CA/CTNNB1","TGFBR2/CTNNB1",
+                              "ERBB4/CTNNB1","TGFBR2/ERBB4"),rownames(sig_rslt)),],
              align="l",row.names=F,caption="Assessment of double perturbations 
              (kinase only) on EMT in CRC")
 ```
